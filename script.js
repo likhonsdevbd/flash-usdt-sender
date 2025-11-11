@@ -61,9 +61,15 @@ function selectWallet(walletType) {
     setTimeout(() => {
         showNotification(`Successfully connected to ${walletName}!`, 'success');
         closeWalletModal();
-        
+
+        // Generate mock wallet data
+        const mockAddress = '0x' + [...Array(40)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+        const mockBalance = (Math.random() * 10).toFixed(4);
+        const mockNetwork = ['Ethereum', 'BSC', 'Polygon', 'Arbitrum'][Math.floor(Math.random() * 4)];
+
+
         // Update UI to show connected state
-        updateConnectionStatus(walletName);
+        updateConnectionStatus(walletName, mockAddress, mockBalance, mockNetwork);
     }, 2000);
 }
 
@@ -114,32 +120,51 @@ function showNotification(message, type = 'info') {
 }
 
 // Update Connection Status
-function updateConnectionStatus(walletName) {
+function updateConnectionStatus(walletName, address, balance, network) {
     // Update CTA button text
     const ctaButtons = document.querySelectorAll('.btn-primary');
     ctaButtons.forEach(button => {
-        if (button.textContent.trim() === 'Launch App') {
-            button.innerHTML = `${walletName} Connected`;
+        if (button.textContent.trim() === 'Launch App' || button.textContent.includes('Connected')) {
+            button.innerHTML = `Wallet Connected`;
             button.style.background = 'var(--success)';
         }
     });
     
     // Show connected state in hero stats
-    addConnectionStats();
+    addConnectionStats(address, balance, network);
 }
 
 // Add Connection Stats
-function addConnectionStats() {
+function addConnectionStats(address, balance, network) {
     const heroStats = document.querySelector('.hero-stats');
-    if (heroStats && !document.querySelector('.connected-wallet')) {
-        const connectedDiv = document.createElement('div');
-        connectedDiv.className = 'stat-item connected-wallet';
-        connectedDiv.innerHTML = `
-            <span class="stat-number" style="color: var(--success);">Connected</span>
-            <span class="stat-label">Wallet Status</span>
-        `;
-        heroStats.appendChild(connectedDiv);
+
+    // Clear existing stats
+    heroStats.innerHTML = '';
+
+    let connectedWalletDiv = document.querySelector('.connected-wallet-details');
+
+    if (!connectedWalletDiv) {
+        connectedWalletDiv = document.createElement('div');
+        connectedWalletDiv.className = 'connected-wallet-details';
+        heroStats.appendChild(connectedWalletDiv);
     }
+
+    const truncatedAddress = `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+
+    connectedWalletDiv.innerHTML = `
+        <div class="stat-item">
+            <span class="stat-label">Wallet Address</span>
+            <span class="stat-number" style="font-size: 14px;">${truncatedAddress}</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Balance</span>
+            <span class="stat-number">${balance} ETH</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Network</span>
+            <span class="stat-number">${network}</span>
+        </div>
+    `;
 }
 
 // Smooth Scrolling for Navigation Links
@@ -208,6 +233,153 @@ document.addEventListener('DOMContentLoaded', () => {
     const learnMoreBtn = document.querySelector('.btn-secondary');
     if (learnMoreBtn) {
         learnMoreBtn.addEventListener('click', initiateDemoTransfer);
+    }
+});
+
+// Twitter Feed
+document.addEventListener('DOMContentLoaded', () => {
+    const tweetFeed = document.getElementById('tweet-feed');
+
+    async function fetchTweets() {
+        try {
+            const response = await fetch('tweets.json');
+            const tweets = await response.json();
+
+            tweetFeed.innerHTML = ''; // Clear existing tweets
+
+            tweets.forEach(tweet => {
+                const tweetCard = document.createElement('div');
+                tweetCard.className = 'tweet-card';
+                tweetCard.innerHTML = `
+                    <div class="tweet-header">
+                        <img src="${tweet.avatar}" alt="${tweet.user}" class="tweet-avatar">
+                        <div>
+                            <div class="tweet-author">${tweet.user}</div>
+                            <div class="tweet-handle">${tweet.handle}</div>
+                        </div>
+                    </div>
+                    <p class="tweet-text">${tweet.text}</p>
+                    <div class="tweet-footer">
+                        <span>❤️ ${tweet.likes}</span>
+                        <span>🔁 ${tweet.retweets}</span>
+                        <span>${tweet.timestamp}</span>
+                    </div>
+                `;
+                tweetFeed.appendChild(tweetCard);
+            });
+        } catch (error) {
+            console.error('Error fetching tweets:', error);
+            tweetFeed.innerHTML = '<p>Error loading tweets.</p>';
+        }
+    }
+
+    fetchTweets();
+});
+
+// Crypto Ticker
+document.addEventListener('DOMContentLoaded', () => {
+    const tickerContainer = document.getElementById('crypto-ticker');
+    const coins = {
+        'bitcoin': 'https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579',
+        'ethereum': 'https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880',
+        'tether': 'https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707'
+    };
+    const coinIds = Object.keys(coins);
+    const vsCurrency = 'usd';
+
+    async function fetchPrices() {
+        try {
+            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${coinIds.join(',')}&vs_currencies=${vsCurrency}&include_24hr_change=true`);
+            const data = await response.json();
+
+            tickerContainer.innerHTML = ''; // Clear existing ticker items
+
+            coinIds.forEach(coin => {
+                const coinData = data[coin];
+                if (coinData) {
+                    const price = coinData[vsCurrency];
+                    const change = coinData[`${vsCurrency}_24h_change`];
+
+                    const tickerItem = document.createElement('div');
+                    tickerItem.className = 'ticker-item';
+
+                    const changeClass = change >= 0 ? 'success' : 'error';
+                    const changeSign = change >= 0 ? '+' : '';
+
+                    tickerItem.innerHTML = `
+                        <img src="${coins[coin]}" alt="${coin}">
+                        <span class="price">$${price.toLocaleString()}</span>
+                        <span class="change ${changeClass}">${changeSign}${change.toFixed(2)}%</span>
+                    `;
+                    tickerContainer.appendChild(tickerItem);
+                }
+            });
+        } catch (error) {
+            console.error('Error fetching crypto prices:', error);
+            tickerContainer.innerHTML = '<p>Error loading price data.</p>';
+        }
+    }
+
+    fetchPrices();
+    setInterval(fetchPrices, 30000); // Update every 30 seconds
+});
+
+// Theme Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-theme');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+
+            // Save theme preference
+            if (body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+});
+
+// Fee Calculator
+document.addEventListener('DOMContentLoaded', () => {
+    const calculateBtn = document.getElementById('calculate-fee');
+    if (calculateBtn) {
+        calculateBtn.addEventListener('click', () => {
+            const fromNetwork = document.getElementById('from-network').value;
+            const toNetwork = document.getElementById('to-network').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const estimatedFeeSpan = document.getElementById('estimated-fee');
+
+            if (isNaN(amount) || amount <= 0) {
+                estimatedFeeSpan.textContent = 'Invalid amount';
+                return;
+            }
+
+            // Simulate fee calculation
+            const baseFee = 0.5; // Base fee in USDT
+            const networkFees = {
+                'ethereum': 0.005,
+                'bsc': 0.001,
+                'polygon': 0.0005,
+                'arbitrum': 0.002
+            };
+
+            const fromFee = networkFees[fromNetwork] || 0;
+            const toFee = networkFees[toNetwork] || 0;
+            const amountFee = amount * 0.001; // 0.1% of the amount
+
+            const totalFee = baseFee + (fromFee + toFee) * amount + amountFee;
+
+            estimatedFeeSpan.textContent = `${totalFee.toFixed(4)} USDT`;
+        });
     }
 });
 
