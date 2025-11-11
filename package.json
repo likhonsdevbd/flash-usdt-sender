@@ -1,5 +1,22 @@
 {
   "name": "flash-usdt-sender",
   "version": "0.1.0",
-  "private": true
+  "private": true,
+  "description": "A modern, professional cryptocurrency DeFi website for instant USDT transfers across blockchain networks.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likhonsdevbd/flash-usdt-sender.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/likhonsdevbd/flash-usdt-sender/issues"
+  },
+  "homepage": "https://github.com/likhonsdevbd/flash-usdt-sender#readme"
 }
