@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash USDT Sender - Fast & Secure USDT Transfers</title>
+    <meta name="description" content="Instant, secure, cross-chain USDT transfers with Flash USDT Sender. Support for MetaMask, Trust Wallet, Coinbase Wallet, and Binance Wallet.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 2L28 10L16 18L4 10L16 2Z" fill="#00E0FF"/>
+                    <path d="M16 14L24 18L16 22L8 18L16 14Z" fill="#00A3FF"/>
+                    <path d="M16 26L20 28L16 30L12 28L16 26Z" fill="#00E0FF"/>
+                </svg>
+                <span class="logo-text">Flash USDT Sender</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#supported-wallets" class="nav-link">Wallets</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#support" class="nav-link">Support</a>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Flash USDT Sender</h1>
+                <p class="hero-subtitle">Instant, Secure, Cross-Chain USDT Transfers</p>
+                <p class="hero-description">
+                    Experience lightning-fast USDT transfers across multiple blockchain networks. 
+                    Our advanced flash loan technology ensures secure, instant transactions with minimal fees.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="openWalletModal()">
+                        Launch App
+                    </button>
+                    <button class="btn btn-secondary">
+                        Learn More
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50,000+</span>
+                        <span class="stat-label">Transactions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">&lt;2s</span>
+                        <span class="stat-label">Average Time</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="network-visual">
+                    <div class="network-node" style="top: 20%; left: 20%;">
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Ethereum</span>
+                    </div>
+                    <div class="network-node" style="top: 20%; right: 20%;">
+                        <div class="node-pulse"></div>
+                        <span class="node-label">BSC</span>
+                    </div>
+                    <div class="network-node" style="bottom: 20%; left: 20%;">
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Polygon</span>
+                    </div>
+                    <div class="network-node" style="bottom: 20%; right: 20%;">
+                        <div class="node-pulse"></div>
+                        <span class="node-label">Arbitrum</span>
+                    </div>
+                    <div class="network-center">
+                        <div class="center-pulse"></div>
+                        <span class="center-label">Flash USDT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Flash USDT Sender?</h2>
+                <p class="section-subtitle">Built with cutting-edge technology for the modern crypto ecosystem</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L36 12L24 20L12 12L24 4Z" fill="#00E0FF"/>
+                            <path d="M24 16L28 18L24 20L20 18L24 16Z" fill="#00A3FF"/>
+                            <path d="M24 24L26 25L24 26L22 25L24 24Z" fill="#00E0FF"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">
+                        Transfer USDT across networks in under 2 seconds with our optimized flash loan technology.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="16" y="12" width="16" height="24" rx="2" stroke="#00E0FF" stroke-width="2" fill="none"/>
+                            <path d="M18 18H30" stroke="#00E0FF" stroke-width="2"/>
+                            <path d="M18 22H30" stroke="#00A3FF" stroke-width="2"/>
+                            <path d="M18 26H26" stroke="#00A3FF" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Maximum Security</h3>
+                    <p class="feature-description">
+                        Bank-grade encryption and smart contract auditing ensure your funds are always protected.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="#00E0FF" stroke-width="2" fill="none"/>
+                            <path d="M24 14V24L30 30" stroke="#00E0FF" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">24/7 Availability</h3>
+                    <p class="feature-description">
+                        Round-the-clock service with 99.9% uptime for uninterrupted USDT transfers.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 24L20 32L36 16" stroke="#00E0FF" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Lowest Fees</h3>
+                    <p class="feature-description">
+                        Competitive rates starting from 0.1% with no hidden charges or surprise fees.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Wallets Section -->
+    <section id="supported-wallets" class="wallets">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Supported Wallets</h2>
+                <p class="section-subtitle">Connect with your favorite cryptocurrency wallet</p>
+            </div>
+            
+            <div class="wallets-grid">
+                <div class="wallet-card">
+                    <div class="wallet-logo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23F6851B' d='M37.5 6H10.5C8.6 6 7 7.6 7 9.5v29c0 1.9 1.6 3.5 3.5 3.5h27c1.9 0 3.5-1.6 3.5-3.5v-29c0-1.9-1.6-3.5-3.5-3.5z'/%3E%3Cpath fill='%23FF6B35' d='M34.5 19.5h-21c-.8 0-1.5.7-1.5 1.5v6c0 .8.7 1.5 1.5 1.5h21c.8 0 1.5-.7 1.5-1.5v-6c0-.8-.7-1.5-1.5-1.5z'/%3E%3C/svg%3E" alt="MetaMask">
+                    </div>
+                    <h3 class="wallet-name">MetaMask</h3>
+                    <p class="wallet-description">Seamlessly connect your MetaMask wallet in one click</p>
+                    <button class="btn btn-outline" onclick="selectWallet('metamask')">Connect</button>
+                </div>
+                
+                <div class="wallet-card">
+                    <div class="wallet-logo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%232575A1'/%3E%3Cpath d='M24 12c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2s2-.9 2-2v-8c0-1.1-.9-2-2-2z' fill='white'/%3E%3Cpath d='M24 26c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2s2-.9 2-2v-8c0-1.1-.9-2-2-2z' fill='white'/%3E%3Cpath d='M12 24c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2s-.9 2-2 2h-8c-1.1 0-2-.9-2-2z' fill='white'/%3E%3Cpath d='M30 16c1.1 0 2 .9 2 2s-.9 2-2 2h-8c-1.1 0-2-.9-2-2s.9-2 2-2h8z' fill='white'/%3E%3C/svg%3E" alt="Trust Wallet">
+                    </div>
+                    <h3 class="wallet-name">Trust Wallet</h3>
+                    <p class="wallet-description">Fast and secure connections with Trust Wallet integration</p>
+                    <button class="btn btn-outline" onclick="selectWallet('trust')">Connect</button>
+                </div>
+                
+                <div class="wallet-card">
+                    <div class="wallet-logo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%230052D6'/%3E%3Cpath d='M12 12h24v8H12z' fill='white'/%3E%3Cpath d='M12 24h24v8H12z' fill='white'/%3E%3Ccircle cx='18' cy='32' r='3' fill='white'/%3E%3Ccircle cx='30' cy='32' r='3' fill='white'/%3E%3C/svg%3E" alt="Coinbase Wallet">
+                    </div>
+                    <h3 class="wallet-name">Coinbase Wallet</h3>
+                    <p class="wallet-description">Professional-grade wallet with enterprise security</p>
+                    <button class="btn btn-outline" onclick="selectWallet('coinbase')">Connect</button>
+                </div>
+                
+                <div class="wallet-card">
+                    <div class="wallet-logo">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23F3BA2F'/%3E%3Cpath d='M24 18l-3 6h6l-3 6' fill='%23000'/%3E%3C/svg%3E" alt="Binance Wallet">
+                    </div>
+                    <h3 class="wallet-name">Binance Wallet</h3>
+                    <p class="wallet-description">Direct integration with Binance's official wallet</p>
+                    <button class="btn btn-outline" onclick="selectWallet('binance')">Connect</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple 3-step process to transfer your USDT</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Connect Wallet</h3>
+                        <p class="step-description">
+                            Choose and connect your preferred cryptocurrency wallet from our supported options.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Select Networks</h3>
+                        <p class="step-description">
+                            Choose your source and destination blockchain networks for the USDT transfer.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Flash Transfer</h3>
+                        <p class="step-description">
+                            Our system executes the cross-chain transfer instantly using advanced flash loan technology.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 2L28 10L16 18L4 10L16 2Z" fill="#00E0FF"/>
+                            <path d="M16 14L24 18L16 22L8 18L16 14Z" fill="#00A3FF"/>
+                            <path d="M16 26L20 28L16 30L12 28L16 26Z" fill="#00E0FF"/>
+                        </svg>
+                        <span>Flash USDT Sender</span>
+                    </div>
+                    <p class="footer-description">
+                        The fastest and most secure way to transfer USDT across blockchain networks.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Flash Loans</a></li>
+                        <li><a href="#">Cross-Chain Transfers</a></li>
+                        <li><a href="#">USDT Swaps</a></li>
+                        <li><a href="#">API Access</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flash USDT Sender. All rights reserved.</p>
+                <p class="footer-disclaimer">
+                    This service is not available in regions where cryptocurrency transactions are prohibited.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Wallet Connection Modal -->
+    <div class="modal-overlay" id="wallet-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Connect a Wallet</h3>
+                <button class="modal-close" onclick="closeWalletModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-content">
+                <p class="modal-description">Choose a wallet to connect to Flash USDT Sender</p>
+                
+                <div class="wallet-options">
+                    <button class="wallet-option" onclick="selectWallet('metamask')">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23F6851B' d='M37.5 6H10.5C8.6 6 7 7.6 7 9.5v29c0 1.9 1.6 3.5 3.5 3.5h27c1.9 0 3.5-1.6 3.5-3.5v-29c0-1.9-1.6-3.5-3.5-3.5z'/%3E%3Cpath fill='%23FF6B35' d='M34.5 19.5h-21c-.8 0-1.5.7-1.5 1.5v6c0 .8.7 1.5 1.5 1.5h21c.8 0 1.5-.7 1.5-1.5v-6c0-.8-.7-1.5-1.5-1.5z'/%3E%3C/svg%3E" alt="MetaMask" class="wallet-icon">
+                        <span class="wallet-name">MetaMask</span>
+                        <span class="wallet-popular">Most Popular</span>
+                    </button>
+                    
+                    <button class="wallet-option" onclick="selectWallet('trust')">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%232575A1'/%3E%3Cpath d='M24 12c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2s2-.9 2-2v-8c0-1.1-.9-2-2-2z' fill='white'/%3E%3Cpath d='M24 26c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2s2-.9 2-2v-8c0-1.1-.9-2-2-2z' fill='white'/%3E%3Cpath d='M12 24c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2s-.9 2-2 2h-8c-1.1 0-2-.9-2-2z' fill='white'/%3E%3Cpath d='M30 16c1.1 0 2 .9 2 2s-.9 2-2 2h-8c-1.1 0-2-.9-2-2s.9-2 2-2h8z' fill='white'/%3E%3C/svg%3E" alt="Trust Wallet" class="wallet-icon">
+                        <span class="wallet-name">Trust Wallet</span>
+                    </button>
+                    
+                    <button class="wallet-option" onclick="selectWallet('coinbase')">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%230052D6'/%3E%3Cpath d='M12 12h24v8H12z' fill='white'/%3E%3Cpath d='M12 24h24v8H12z' fill='white'/%3E%3Ccircle cx='18' cy='32' r='3' fill='white'/%3E%3Ccircle cx='30' cy='32' r='3' fill='white'/%3E%3C/svg%3E" alt="Coinbase Wallet" class="wallet-icon">
+                        <span class="wallet-name">Coinbase Wallet</span>
+                    </button>
+                    
+                    <button class="wallet-option" onclick="selectWallet('binance')">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23F3BA2F'/%3E%3Cpath d='M24 18l-3 6h6l-3 6' fill='%23000'/%3E%3C/svg%3E" alt="Binance Wallet" class="wallet-icon">
+                        <span class="wallet-name">Binance Wallet</span>
+                    </button>
+                </div>
+                
+                <div class="modal-footer">
+                    <p class="modal-note">By connecting a wallet, you agree to our Terms of Service</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
