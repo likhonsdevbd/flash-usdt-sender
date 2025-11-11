@@ -297,40 +297,23 @@
         </div>
     </section>
 
-    <!-- Fee Calculator Section -->
-    <section id="fee-calculator" class="fee-calculator">
+    <!-- Transaction Section -->
+    <section id="transaction" class="fee-calculator">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Transaction Fee Calculator</h2>
-                <p class="section-subtitle">Estimate the fees for your cross-chain USDT transfer</p>
+                <h2 class="section-title">Send a Transaction</h2>
+                <p class="section-subtitle">Enter the transaction details below</p>
             </div>
             <div class="calculator-container">
-                <div class="form-group">
-                    <label for="from-network">From</label>
-                    <select id="from-network">
-                        <option value="ethereum">Ethereum</option>
-                        <option value="bsc">Binance Smart Chain</option>
-                        <option value="polygon">Polygon</option>
-                        <option value="arbitrum">Arbitrum</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="to-network">To</label>
-                    <select id="to-network">
-                        <option value="ethereum">Ethereum</option>
-                        <option value="bsc" selected>Binance Smart Chain</option>
-                        <option value="polygon">Polygon</option>
-                        <option value="arbitrum">Arbitrum</option>
-                    </select>
-                </div>
                 <div class="form-group">
                     <label for="amount">Amount (USDT)</label>
                     <input type="number" id="amount" value="1000">
                 </div>
-                <button class="btn btn-primary" id="calculate-fee">Calculate Fee</button>
-                <div class="fee-result">
-                    <p>Estimated Fee: <span id="estimated-fee">...</span></p>
+                <div class="form-group">
+                    <label for="recipient-address">Recipient Address</label>
+                    <input type="text" id="recipient-address" placeholder="Enter recipient address">
                 </div>
+                <button class="btn btn-primary" id="send-transaction">Send Transaction</button>
             </div>
         </div>
     </section>

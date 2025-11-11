@@ -348,40 +348,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Fee Calculator
+// Transaction Submission
 document.addEventListener('DOMContentLoaded', () => {
-    const calculateBtn = document.getElementById('calculate-fee');
-    if (calculateBtn) {
-        calculateBtn.addEventListener('click', () => {
-            const fromNetwork = document.getElementById('from-network').value;
-            const toNetwork = document.getElementById('to-network').value;
+    const sendTransactionBtn = document.getElementById('send-transaction');
+    if (sendTransactionBtn) {
+        sendTransactionBtn.addEventListener('click', async () => {
             const amount = parseFloat(document.getElementById('amount').value);
-            const estimatedFeeSpan = document.getElementById('estimated-fee');
+            const recipientAddress = document.getElementById('recipient-address').value.trim();
 
             if (isNaN(amount) || amount <= 0) {
-                estimatedFeeSpan.textContent = 'Invalid amount';
+                showNotification('Please enter a valid amount.', 'error');
                 return;
             }
 
-            // Simulate fee calculation
-            const baseFee = 0.5; // Base fee in USDT
-            const networkFees = {
-                'ethereum': 0.005,
-                'bsc': 0.001,
-                'polygon': 0.0005,
-                'arbitrum': 0.002
-            };
+            if (!recipientAddress) {
+                showNotification('Please enter a recipient address.', 'error');
+                return;
+            }
 
-            const fromFee = networkFees[fromNetwork] || 0;
-            const toFee = networkFees[toNetwork] || 0;
-            const amountFee = amount * 0.001; // 0.1% of the amount
+            showNotification('Sending transaction...', 'info');
 
-            const totalFee = baseFee + (fromFee + toFee) * amount + amountFee;
+            try {
+                const response = await fetch('/api/transactions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ amount, recipientAddress }),
+                });
 
-            estimatedFeeSpan.textContent = `${totalFee.toFixed(4)} USDT`;
+                const result = await response.json();
+
+                if (response.ok) {
+                    showNotification(`Transaction successful! TXID: ${result.transactionId.substring(0, 10)}...`, 'success');
+                } else {
+                    showNotification(`Transaction failed: ${result.error}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error sending transaction:', error);
+                showNotification('An error occurred while sending the transaction.', 'error');
+            }
         });
     }
 });
+
 
 // Keyboard Navigation
 document.addEventListener('keydown', (e) => {
