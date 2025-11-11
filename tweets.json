@@ -1,0 +1,29 @@
+[
+    {
+        "user": "CryptoKing",
+        "handle": "@CryptoKing",
+        "avatar": "https://randomuser.me/api/portraits/men/75.jpg",
+        "timestamp": "2h",
+        "text": "Just used Flash USDT Sender to move my funds across chains. Lightning fast and super cheap! #DeFi #USDT",
+        "likes": 123,
+        "retweets": 45
+    },
+    {
+        "user": "DeFi Queen",
+        "handle": "@DeFiQueen",
+        "avatar": "https://randomuser.me/api/portraits/women/75.jpg",
+        "timestamp": "3h",
+        "text": "The cross-chain experience with Flash USDT Sender is seamless. Highly recommend for anyone in the crypto space. #crypto #blockchain",
+        "likes": 234,
+        "retweets": 67
+    },
+    {
+        "user": "Whale Rider",
+        "handle": "@WhaleRider",
+        "avatar": "https://randomuser.me/api/portraits/men/76.jpg",
+        "timestamp": "5h",
+        "text": "Finally, a DeFi project that just works. Flash USDT Sender is a game changer. #USDT #crosschain",
+        "likes": 345,
+        "retweets": 89
+    }
+]
