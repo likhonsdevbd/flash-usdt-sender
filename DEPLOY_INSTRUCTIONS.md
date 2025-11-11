@@ -1,0 +1,42 @@
+#!/bin/bash
+
+echo "🚀 VERCEL DEPLOYMENT INSTRUCTIONS"
+echo "================================="
+echo ""
+
+echo "📋 OPTION 1: GitHub Integration (Recommended)"
+echo "1. Go to https://vercel.com/new"
+echo "2. Click 'Import Git Repository'"
+echo "3. Sign in with GitHub and select:"
+echo "   Repository: likhonsdevbd/flash-usdt-sender"
+echo "4. Configure settings:"
+echo "   - Framework Preset: Vite/Other"
+echo "   - Build Command: (leave empty)"
+echo "   - Output Directory: (leave empty)"
+echo "   - Install Command: npm install"
+echo "5. Click 'Deploy'"
+echo "6. Wait for build completion (2-3 minutes)"
+echo ""
+
+echo "📋 OPTION 2: Vercel CLI (If you have access)"
+echo "1. Login to Vercel: vercel login"
+echo "2. Deploy: vercel --prod"
+echo "3. Follow the prompts"
+echo ""
+
+echo "📋 OPTION 3: Netlify (Alternative)"
+echo "1. Go to https://netlify.com"
+echo "2. Drag & drop this entire folder"
+echo "3. Get instant live URL!"
+echo ""
+
+echo "✅ SUCCESS INDICATORS:"
+echo "- Green 'Ready' status in deployment logs"
+echo "- Your domain shows the Flash USDT Sender website"
+echo "- All features working (wallet modal, animations)"
+echo ""
+
+echo "🔗 EXPECTED URL:"
+echo "https://flash-usdt-sender-[random].vercel.app/"
+echo "OR"
+echo "https://your-custom-name.vercel.app/"
