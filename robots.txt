@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://flash-usdt-sender-bd.vercel.app/sitemap.xml
+
+# Crawl delay (optional, Vercel handles this automatically)
+# Crawl-delay: 1
+
+# Allow all bots to index
+# Disallow: /private/
+# Disallow: /admin/
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+
+# Bing-specific  
+User-agent: Bingbot
+Allow: /
+
+# Block aggressive bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
